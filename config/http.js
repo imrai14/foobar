@@ -95,7 +95,8 @@ module.exports = {
         '/',
         '/emoji/signup',
         '/emoji/login',
-        '/emoji/edit'  
+        '/emoji/edit',
+        '/emoji/deleteUser'
       ],
       method: 'OPTIONS'
     }));

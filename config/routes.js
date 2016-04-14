@@ -38,7 +38,8 @@ module.exports.routes = {
 
   'POST /emoji/signup' :       'EmojiController.signUp',
   'POST /emoji/login'  :       'EmojiController.login',
-  'POST /emoji/edit'   :       'EmojiController.edit'
+  'POST /emoji/edit'   :       'EmojiController.edit',
+  'POST /emoji/deleteUser' :    'EmojiController.deleteUser',
 
   /***************************************************************************
   *                                                                          *

@@ -73,16 +73,29 @@ module.exports = {
 				}
 			});
 		}
+	},
+
+	deleteUser: function(req, res){
+		if(!req.body || !req.body.username){
+			res.badRequest('no userId specified to delete. Please specify one');
+		}else{
+			Emoji.userDelete(req.body.username, function(err,message){
+				if(err)
+					res.serverError(err);
+				else
+					res.send(message);
+			});
+		}
 	}
 	
 };
-		var makeid =  function (){
-		    var text = "";
-		    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+var makeid =  function (){
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-		    for( var i=0; i < 50; i++ )
-		        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    for( var i=0; i < 30; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-		    return text;
-		}
+    return text;
+}
 

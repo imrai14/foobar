@@ -56,6 +56,26 @@ module.exports = {
 		});
 
 	},
+	userDelete : function(username,cb){
+		Emoji.findOne({ username : username}).exec(function(err,user){
+			if(err){
+				console.log(err);
+				cb(err);
+			}else if(user){
+				Emoji.destroy({username: username}).exec(function(err){
+					if(err){
+						console.log(err);
+						cb(err);
+					}else{
+						cb(null,'User removed successfully')
+					}
+				});
+			}else{
+				console.log('Unable to remove this user');
+				cb(null,'Unable to remove this user');
+			}
+		});
+	},
 
 	signup: function(uUsername, uPassword, callback){
 		Emoji.findOne({username: uUsername}).exec(function(err, user){
