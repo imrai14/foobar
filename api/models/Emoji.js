@@ -51,7 +51,7 @@ module.exports = {
 				sails.log('please edit',user);
 				callback(null,user);
 			}else{
-				callback({status: 401 , message: "Wrong password"}, null);
+				callback({status: 401 , message: "User Does not exists"}, null);
 			}
 		});
 
