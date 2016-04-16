@@ -19,6 +19,15 @@ module.exports = {
 				if(err){
 					res.serverError(err);
 				}else{
+					var xxx = 'raishubham14@gmail.com';
+					myMailService.sendDummyMail(xxx,function(err, response){
+						if(err)
+							sails.log.debug('err>>>>',err);
+						else{
+							sails.log.debug('mail sent successfully'+response);
+							// res.status(200);
+						}
+					});
 					req.session.authenticated = true;
 
 					req.session.user = resp;
