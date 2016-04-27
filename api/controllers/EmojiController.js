@@ -5,6 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 var jwt = require('jsonwebtoken');
+
 // var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
 // sails.log.debug("token",token);
 var token;
@@ -19,21 +20,18 @@ module.exports = {
 				if(err){
 					res.serverError(err);
 				}else{
-					var xxx = 'raishubham14@gmail.com';
-					myMailService.sendDummyMail(xxx,function(err, response){
-						if(err)
-							sails.log.debug('err>>>>',err);
-						else{
-							sails.log.debug('mail sent successfully'+response);
-							// res.status(200);
-						}
-					});
+					// var xxx = 'raishubham14@gmail.com';
+					// myMailService.sendDummyMail(xxx,function(err, response){
+					// 	if(err)
+					// 		sails.log.debug('err>>>>',err);
+					// 	else{
+					// 		sails.log.debug('mail sent successfully'+response);
+					// 		// res.status(200);
+					// 	}
+					// });
 					req.session.authenticated = true;
-
 					req.session.user = resp;
 					sails.log('token',token)
-					// var sailsToken = jwt.sign(resp, 'secret', {expiresIn: 3600}); 
-					// sails.log.debug("req session user- login>>>>>>",req.session.user);
 					res.json({status: 200, data: resp, token: token});
 				}
 			});
